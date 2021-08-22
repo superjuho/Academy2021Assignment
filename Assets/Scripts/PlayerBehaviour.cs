@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class PlayerBehaviour : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class PlayerBehaviour : MonoBehaviour
     public GameObject PointsUI;
     public GameObject defeat;
     public GameObject collectStar;
+    public GameObject gameOverCanvas;
+    public GameObject title;
 
     public Color orange;
     public Color cyan;
@@ -23,6 +26,8 @@ public class PlayerBehaviour : MonoBehaviour
 
     public GameObject player;
     public Color playerColor;
+
+    bool gameover = false;
 
     int points = 0;
 
@@ -52,7 +57,7 @@ public class PlayerBehaviour : MonoBehaviour
         PointsUI.GetComponent<TextMeshProUGUI>().text = points.ToString();
 
         // jumping action
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !gameover)
         {
             rigidBody.velocity = Vector2.up * jumpForce;
             audioSource.PlayOneShot(blip, 1f);
@@ -98,6 +103,16 @@ public class PlayerBehaviour : MonoBehaviour
             float x = collider.gameObject.transform.position.x;
             float y = collider.gameObject.transform.position.y;
             Instantiate(collectStar, new Vector2(x, y), Quaternion.identity);
+        }
+
+        // if player hits the finish line, gameover canvas is set to true, but game over text is now "winner", game is paused.
+        if (collider.CompareTag("Finish"))
+        {
+            gameOverCanvas.SetActive(true);
+            title.GetComponent<TextMeshProUGUI>().text = "Winner!";
+            Time.timeScale = 0;
+            gameover = true;
+
         }
     }
 
