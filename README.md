@@ -4,7 +4,7 @@
 
 `clone repository`
  
- Then open the project in Unity
+ Then open the project in Unity and choose GameScene from Scenes folder
 
 ## Game documentation
 When I first watched the video about the gameplay for the assignment, I knew right away that I could compare the player's ball color component to the obsctacles color component. So I made a script that gets the game objects exact colors, so if they would be changed they would always still work in the game. The ball gets it's color with these values.
