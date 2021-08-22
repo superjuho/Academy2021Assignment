@@ -9,7 +9,7 @@ public class PlayerBehaviour : MonoBehaviour
     AudioSource audioSource;
     public AudioClip blip;
     public AudioClip bling;
-    public AudioClip blap;
+    public AudioClip stars;
 
     public Rigidbody2D rigidBody;
     public GameObject PointsUI;
@@ -94,7 +94,7 @@ public class PlayerBehaviour : MonoBehaviour
         {
             points++;
             Destroy(collider.gameObject);
-            audioSource.PlayOneShot(blap, 1f);
+            audioSource.PlayOneShot(stars, 1f);
             float x = collider.gameObject.transform.position.x;
             float y = collider.gameObject.transform.position.y;
             Instantiate(collectStar, new Vector2(x, y), Quaternion.identity);
