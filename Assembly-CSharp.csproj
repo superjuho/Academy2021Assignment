@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\AudioController.cs" />
+    <Compile Include="Assets\Scripts\SceneBehaviour.cs" />
     <Compile Include="Assets\Scripts\PlayerBehaviour.cs" />
     <Compile Include="Assets\Scripts\CameraBehaviour.cs" />
     <Compile Include="Assets\Scripts\RotationBehaviour.cs" />

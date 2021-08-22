@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AudioController : MonoBehaviour
+public class AudioController : MonoBehaviour // controlls the gameover sound
 {
     AudioSource audioSource;
     public AudioClip defeat;
